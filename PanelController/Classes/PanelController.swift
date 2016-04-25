@@ -34,17 +34,17 @@ public class PanelController: UIViewController {
     
     // MARK: - PUBLIC -
     
-    public enum PanelStyle {
+    public enum PanelStyle: Int {
         case Above
         case SideBySide
     }
     
-    public enum PanelState {
+    public enum PanelState: Int {
         case Opened
         case Closed
     }
     
-    public enum PanelSide {
+    public enum PanelSide: Int {
         case Left
         case Right
     }
@@ -55,11 +55,11 @@ public class PanelController: UIViewController {
     public private(set) var leftController: UIViewController?
     public private(set) var rightController: UIViewController?
     
-    public private(set) var leftPanelState: PanelState = .Opened
-    public private(set) var rightPanelState: PanelState = .Opened
+    public private(set) var leftPanelState: PanelState = .Closed
+    public private(set) var rightPanelState: PanelState = .Closed
     
-    public var leftPanelStyle: PanelStyle = .SideBySide
-    public var rightPanelStyle: PanelStyle = .SideBySide
+    public var leftPanelStyle: PanelStyle = .SideBySide     { didSet { self.updateLayout(animated: false) } }
+    public var rightPanelStyle: PanelStyle = .SideBySide    { didSet { self.updateLayout(animated: false) } }
     
     public var delegate: PanelControllerDelegate?
     
@@ -241,6 +241,7 @@ public class PanelController: UIViewController {
         leftController.view.addConstraint(widthConstraint)
         
         leftController.didMoveToParentViewController(self)
+        self.updateViewConstraints()
         self.view.layoutSubviews()
         self.leftController = leftController
     }
@@ -269,6 +270,7 @@ public class PanelController: UIViewController {
         rightController.view.addConstraint(widthConstraint)
         
         rightController.didMoveToParentViewController(self)
+        self.updateViewConstraints()
         self.view.layoutSubviews()
         self.rightController = rightController
     }
