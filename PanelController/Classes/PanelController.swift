@@ -58,8 +58,8 @@ public class PanelController: UIViewController {
     public private(set) var leftPanelState: PanelState = .Closed
     public private(set) var rightPanelState: PanelState = .Closed
     
-    public var leftPanelStyle: PanelStyle = .SideBySide     { didSet { self.updateLayout(animated: false) } }
-    public var rightPanelStyle: PanelStyle = .SideBySide    { didSet { self.updateLayout(animated: false) } }
+    public var leftPanelStyle: PanelStyle = .Above     { didSet { self.updateLayout(animated: false) } }
+    public var rightPanelStyle: PanelStyle = .Above    { didSet { self.updateLayout(animated: false) } }
     
     public var delegate: PanelControllerDelegate?
     
