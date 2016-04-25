@@ -22,7 +22,7 @@ pod "PanelController"
 
 ## Author
 
-Tanguy Helesbeux, thelesbeux@hevaweb.com
+Tanguy Helesbeux, pods@helesbeux.com
 
 ## License
 
