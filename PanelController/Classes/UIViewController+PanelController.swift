@@ -8,7 +8,8 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     
-    internal var panelController: PanelController? { return self.parentViewController as? PanelController }
+    public var panelController: PanelController? { return self.parentViewController as? PanelController }
+    
 }

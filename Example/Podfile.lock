@@ -9,7 +9,7 @@ PODS:
     - FBSnapshotTestCase (~> 2.0)
     - Nimble
     - Quick
-  - PanelController (0.1.0)
+  - PanelController (1.0.6)
   - Quick (0.9.2)
 
 DEPENDENCIES:
@@ -27,7 +27,7 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 366ecd378511d7716c79991cd8067d1eed23578d
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Nimble-Snapshots: 2d15a585b816f7d14947ed6e172218f9d0980ea8
-  PanelController: 08c18ed96856c7b7675c5e37fc5bf0585b7a8179
+  PanelController: 5e25763a554fcb2f1844fd618ab69594204001fb
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
 
 COCOAPODS: 0.39.0

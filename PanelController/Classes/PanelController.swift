@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PanelControllerDelegate {
+public protocol PanelControllerDelegate {
     
     func panelController(panelController: PanelController, willChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState)
     func panelController(panelController: PanelController, didChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState)
@@ -17,53 +17,53 @@ protocol PanelControllerDelegate {
     func panelController(panelController: PanelController, didChangeSizeOfPanel side: PanelController.PanelSide)
 }
 
-class PanelController: UIViewController {
+public class PanelController: UIViewController {
 
     // MARK: - INITIALIZERS -
     
-    init(centerController: UIViewController, leftController: UIViewController? = nil, rightController: UIViewController? = nil) {
+    public init(centerController: UIViewController, leftController: UIViewController? = nil, rightController: UIViewController? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.setCenterPanelWithController(centerController)
         self.setLeftPanelWithController(leftController)
         self.setRightPanelWithController(rightController)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - PUBLIC -
     
-    internal enum PanelStyle {
+    public enum PanelStyle {
         case Above
         case SideBySide
     }
     
-    internal enum PanelState {
+    public enum PanelState {
         case Opened
         case Closed
     }
     
-    internal enum PanelSide {
+    public enum PanelSide {
         case Left
         case Right
     }
     
     // MARK: Properties
     
-    internal private(set) var centerController: UIViewController?
-    internal private(set) var leftController: UIViewController?
-    internal private(set) var rightController: UIViewController?
+    public private(set) var centerController: UIViewController?
+    public private(set) var leftController: UIViewController?
+    public private(set) var rightController: UIViewController?
     
-    internal private(set) var leftPanelState: PanelState = .Opened
-    internal private(set) var rightPanelState: PanelState = .Opened
+    public private(set) var leftPanelState: PanelState = .Opened
+    public private(set) var rightPanelState: PanelState = .Opened
     
-    internal var leftPanelStyle: PanelStyle = .SideBySide
-    internal var rightPanelStyle: PanelStyle = .SideBySide
+    public var leftPanelStyle: PanelStyle = .SideBySide
+    public var rightPanelStyle: PanelStyle = .SideBySide
     
-    internal var delegate: PanelControllerDelegate?
+    public var delegate: PanelControllerDelegate?
     
-    internal var layoutAnimationsDuration: NSTimeInterval = 0.5
+    public var layoutAnimationsDuration: NSTimeInterval = 0.5
     
     // MARK: API
     
@@ -78,7 +78,7 @@ class PanelController: UIViewController {
     - parameter animated: `Optional`. If `true` will animate with the duration set in `PanelController.layoutAnimationsDuration`.
     
     */
-    internal func setPanel(side: PanelSide, _ state: PanelState, animated: Bool = false) {
+    public func setPanel(side: PanelSide, _ state: PanelState, animated: Bool = false) {
         self.delegate?.panelController(self, willChangePanel: side, toState: state)
         switch side {
         case .Left:
@@ -110,7 +110,7 @@ class PanelController: UIViewController {
      
      */
     
-    internal func setPanels(sides: [PanelSide], _ state: PanelState, animated: Bool = false) {
+    public func setPanels(sides: [PanelSide], _ state: PanelState, animated: Bool = false) {
         for side in sides {
             self.delegate?.panelController(self, willChangePanel: side, toState: state)
             switch side {
@@ -143,7 +143,7 @@ class PanelController: UIViewController {
      
      */
     
-    internal func setPanels(changes: [(side: PanelSide, state: PanelState)], animated: Bool = false) {
+    public func setPanels(changes: [(side: PanelSide, state: PanelState)], animated: Bool = false) {
         for change in changes {
             self.delegate?.panelController(self, willChangePanel: change.side, toState: change.state)
             switch change.side {
@@ -168,9 +168,9 @@ class PanelController: UIViewController {
     
     // Mark: Panel Setters
     
-    internal func setCenterPanelWithController(controller: UIViewController?)   { self._setCenterPanelWithController(controller) }
-    internal func setLeftPanelWithController(controller: UIViewController?)     { self._setLeftPanelWithController(controller)   }
-    internal func setRightPanelWithController(controller: UIViewController?)    { self._setRightPanelWithController(controller)  }
+    public func setCenterPanelWithController(controller: UIViewController?)   { self._setCenterPanelWithController(controller) }
+    public func setLeftPanelWithController(controller: UIViewController?)     { self._setLeftPanelWithController(controller)   }
+    public func setRightPanelWithController(controller: UIViewController?)    { self._setRightPanelWithController(controller)  }
     
     // MARK: - PRIVATE -
     
@@ -282,7 +282,7 @@ class PanelController: UIViewController {
         controller.didMoveToParentViewController(nil)
     }
     
-    override func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer) {
+    override public func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer) {
         guard let controller = container as? UIViewController else { return }
         guard let side = self.sideForController(controller) else { return }
         
@@ -319,7 +319,7 @@ class PanelController: UIViewController {
             })
     }
     
-    override func updateViewConstraints() {
+    override public func updateViewConstraints() {
         
         // Panel left
         let leftWidth = self.widthForController(self.leftController)

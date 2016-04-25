@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0C162C94867CDCA8256EF3C2'
+               BlueprintIdentifier = '4A309CEDBAD9EDF3428DF047'
                BlueprintName = 'PanelController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'PanelController.framework'>

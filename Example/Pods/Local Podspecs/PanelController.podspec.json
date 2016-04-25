@@ -1,16 +1,15 @@
 {
   "name": "PanelController",
-  "version": "0.1.0",
-  "summary": "A short description of PanelController.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/PanelController",
+  "version": "1.0.6",
+  "summary": "Controller component to add panels on both side of the screen.",
+  "homepage": "https://github.com/Tgy31/PanelController",
   "license": "MIT",
   "authors": {
-    "Tanguy Helesbeux": "thelesbeux@hevaweb.com"
+    "Tanguy Helesbeux": "pods@helesbeux.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/PanelController.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/Tgy31/PanelController.git",
+    "tag": "1.0.6"
   },
   "platforms": {
     "ios": "8.0"
