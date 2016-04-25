@@ -1,0 +1,24 @@
+{
+  "name": "PanelController",
+  "version": "0.1.0",
+  "summary": "A short description of PanelController.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/PanelController",
+  "license": "MIT",
+  "authors": {
+    "Tanguy Helesbeux": "thelesbeux@hevaweb.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/PanelController.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "PanelController/Classes/**/*",
+  "resource_bundles": {
+    "PanelController": [
+      "PanelController/Assets/*.png"
+    ]
+  }
+}

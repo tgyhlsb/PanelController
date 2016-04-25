@@ -1,0 +1,6 @@
+framework module PanelController {
+  umbrella header "PanelController-umbrella.h"
+
+  export *
+  module * { export * }
+}
