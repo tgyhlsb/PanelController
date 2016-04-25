@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstViewController" customModule="PanelController_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="animationsSwitch" destination="mit-AR-bdB" id="A5b-yg-9Mp"/>
+                <outlet property="leftButton" destination="MZl-St-r81" id="h13-No-52l"/>
+                <outlet property="rightButton" destination="UCG-Dk-rWn" id="kAk-2P-WZa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPJ-XH-aSD">
+                    <rect key="frame" x="8" y="8" width="584" height="584"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZl-St-r81">
+                            <rect key="frame" x="8" y="277" width="30" height="30"/>
+                            <state key="normal" title="Left"/>
+                            <connections>
+                                <action selector="leftButtonHandler:" destination="-1" eventType="touchUpInside" id="YRC-c5-NB7"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCG-Dk-rWn">
+                            <rect key="frame" x="540" y="277" width="36" height="30"/>
+                            <state key="normal" title="Right"/>
+                            <connections>
+                                <action selector="rightButtonHandler:" destination="-1" eventType="touchUpInside" id="W31-fR-4cm"/>
+                            </connections>
+                        </button>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LQe-I7-Hr5">
+                            <rect key="frame" x="202" y="278" width="181" height="29"/>
+                            <segments>
+                                <segment title="Above"/>
+                                <segment title="Side by Side"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControllerValueDidChange:" destination="-1" eventType="valueChanged" id="sX7-ZC-Zr8"/>
+                            </connections>
+                        </segmentedControl>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mit-AR-bdB">
+                            <rect key="frame" x="268" y="545" width="51" height="31"/>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-FO-qNV">
+                            <rect key="frame" x="250" y="516" width="86" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="mit-AR-bdB" firstAttribute="centerX" secondItem="aYV-FO-qNV" secondAttribute="centerX" id="5HC-4n-aXr"/>
+                        <constraint firstItem="mit-AR-bdB" firstAttribute="top" secondItem="aYV-FO-qNV" secondAttribute="bottom" constant="8" id="LsA-om-o7B"/>
+                        <constraint firstItem="LQe-I7-Hr5" firstAttribute="centerY" secondItem="YPJ-XH-aSD" secondAttribute="centerY" id="NY3-jc-gCU"/>
+                        <constraint firstItem="MZl-St-r81" firstAttribute="centerY" secondItem="YPJ-XH-aSD" secondAttribute="centerY" id="SBf-3I-dy9"/>
+                        <constraint firstItem="LQe-I7-Hr5" firstAttribute="centerX" secondItem="YPJ-XH-aSD" secondAttribute="centerX" id="SfA-US-rh9"/>
+                        <constraint firstItem="MZl-St-r81" firstAttribute="leading" secondItem="YPJ-XH-aSD" secondAttribute="leading" constant="8" id="Trd-VS-mEa"/>
+                        <constraint firstItem="mit-AR-bdB" firstAttribute="centerX" secondItem="YPJ-XH-aSD" secondAttribute="centerX" id="VFt-cz-iv6"/>
+                        <constraint firstAttribute="trailing" secondItem="UCG-Dk-rWn" secondAttribute="trailing" constant="8" id="Xcd-fY-rIj"/>
+                        <constraint firstAttribute="bottom" secondItem="mit-AR-bdB" secondAttribute="bottom" constant="8" id="dhg-IX-P29"/>
+                        <constraint firstItem="UCG-Dk-rWn" firstAttribute="centerY" secondItem="YPJ-XH-aSD" secondAttribute="centerY" id="j0b-1P-94h"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="YPJ-XH-aSD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2DB-uJ-WlD"/>
+                <constraint firstAttribute="bottom" secondItem="YPJ-XH-aSD" secondAttribute="bottom" constant="8" id="YdJ-vj-r1J"/>
+                <constraint firstAttribute="trailing" secondItem="YPJ-XH-aSD" secondAttribute="trailing" constant="8" id="aZg-Ml-sgn"/>
+                <constraint firstItem="YPJ-XH-aSD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="bnF-Ct-N3p"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
