@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "PanelController"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of PanelController."
+  s.version          = "1.0.6"
+  s.summary          = "Controller component to add panels on both side of the screen."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,15 +17,14 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-                       DESC
+  # s.description      = <<-DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/PanelController"
+  s.homepage         = "https://github.com/Tgy31/PanelController"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Tanguy Helesbeux" => "thelesbeux@hevaweb.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/PanelController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "Tanguy Helesbeux" => "pods@helesbeux.com" }
+  s.source           = { :git => "https://github.com/Tgy31/PanelController.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/tgyhlsb'
 
   s.ios.deployment_target = '8.0'
 
