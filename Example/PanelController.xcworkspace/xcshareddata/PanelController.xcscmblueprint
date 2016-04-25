@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "991B803F2D1FF401242CF94C7CAA960956CE23E0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "991B803F2D1FF401242CF94C7CAA960956CE23E0" : 0,
+    "79695032E037D3D0877AB11169157078C63643D6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7CBBAF87-DD5A-4F8B-AE5F-B4402473F545",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "991B803F2D1FF401242CF94C7CAA960956CE23E0" : "PanelController\/",
+    "79695032E037D3D0877AB11169157078C63643D6" : "..\/Components\/PanelControllerDemo"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PanelController",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/PanelController.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.heva.local:iOS_Components\/PanelControllerDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "79695032E037D3D0877AB11169157078C63643D6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Tgy31\/PanelController.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "991B803F2D1FF401242CF94C7CAA960956CE23E0"
+    }
+  ]
+}
