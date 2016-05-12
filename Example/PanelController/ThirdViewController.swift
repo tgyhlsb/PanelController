@@ -9,11 +9,13 @@
 import UIKit
 
 class ThirdViewController: ViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBAction func closeButtonHandler(sender: UIButton) {
+        self.panelController?.setPanel(.Right, .Closed, animated: true)
+    }
+    
+    @IBAction func segmentedControllerValueDidChange(sender: UISegmentedControl) {
+        self.preferredContentSize.width = 100 + 100.00 * CGFloat(1 + sender.selectedSegmentIndex)
     }
 
 }
