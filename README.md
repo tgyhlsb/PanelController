@@ -1,6 +1,6 @@
 # PanelController
 
-[![CI Status](http://img.shields.io/travis/Tanguy Helesbeux/PanelController.svg?style=flat)](https://travis-ci.org/Tanguy Helesbeux/PanelController)
+[![CI Status](http://img.shields.io/travis/Tanguy Helesbeux/PanelController.svg?style=flat)](https://travis-ci.org/Tgy31/PanelController)
 [![Version](https://img.shields.io/cocoapods/v/PanelController.svg?style=flat)](http://cocoapods.org/pods/PanelController)
 [![License](https://img.shields.io/cocoapods/l/PanelController.svg?style=flat)](http://cocoapods.org/pods/PanelController)
 [![Platform](https://img.shields.io/cocoapods/p/PanelController.svg?style=flat)](http://cocoapods.org/pods/PanelController)
