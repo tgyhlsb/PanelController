@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,7 +14,32 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-ph-AG1">
+                    <rect key="frame" x="281" y="285" width="39" height="30"/>
+                    <state key="normal" title="Close"/>
+                    <connections>
+                        <action selector="closeButtonHandler:" destination="-1" eventType="touchUpInside" id="38M-jO-5Qf"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UlA-dW-B3E">
+                    <rect key="frame" x="253" y="323" width="95" height="29"/>
+                    <segments>
+                        <segment title="Small"/>
+                        <segment title="Big"/>
+                    </segments>
+                    <connections>
+                        <action selector="segmentedControllerValueDidChange:" destination="-1" eventType="valueChanged" id="ZsS-c7-qQa"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="UlA-dW-B3E" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Zny-R0-gfV"/>
+                <constraint firstItem="UhE-ph-AG1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="baS-JB-VYd"/>
+                <constraint firstItem="UlA-dW-B3E" firstAttribute="top" secondItem="UhE-ph-AG1" secondAttribute="bottom" constant="8" id="phM-h3-qwx"/>
+                <constraint firstItem="UhE-ph-AG1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="rwf-ph-mZO"/>
+            </constraints>
         </view>
     </objects>
 </document>
