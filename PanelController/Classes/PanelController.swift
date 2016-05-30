@@ -227,11 +227,11 @@ public class PanelController: UIViewController {
         leftController.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(leftController.view)
         
-        
+        let width = self.widthForController(leftController)
         let topConstraint =         NSLayoutConstraint(item: self.view,             attribute: .Top,         relatedBy: .Equal, toItem: leftController.view, attribute: .Top,            multiplier: 1.0, constant: 0.0)
         let bottomConstraint =      NSLayoutConstraint(item: self.view,             attribute: .Bottom,      relatedBy: .Equal, toItem: leftController.view, attribute: .Bottom,         multiplier: 1.0, constant: 0.0)
         let leadingConstraint =     NSLayoutConstraint(item: self.view,             attribute: .Leading,     relatedBy: .Equal, toItem: leftController.view, attribute: .Leading,        multiplier: 1.0, constant: 0.0)
-        let widthConstraint =       NSLayoutConstraint(item: leftController.view,   attribute: .Width,       relatedBy: .Equal, toItem: nil,                 attribute: .NotAnAttribute, multiplier: 1.0, constant: leftController.preferredContentSize.width)
+        let widthConstraint =       NSLayoutConstraint(item: leftController.view,   attribute: .Width,       relatedBy: .Equal, toItem: nil,                 attribute: .NotAnAttribute, multiplier: 1.0, constant: width)
         
         self.leftPanelConstraints = [leadingConstraint, topConstraint, bottomConstraint, widthConstraint]
         self.leftPanelLeadingConstraint = leadingConstraint
@@ -256,11 +256,11 @@ public class PanelController: UIViewController {
         rightController.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(rightController.view)
         
-        
+        let width = self.widthForController(rightController)
         let topConstraint =         NSLayoutConstraint(item: self.view,             attribute: .Top,        relatedBy: .Equal, toItem: rightController.view, attribute: .Top,               multiplier: 1.0, constant: 0.0)
         let bottomConstraint =      NSLayoutConstraint(item: self.view,             attribute: .Bottom,     relatedBy: .Equal, toItem: rightController.view, attribute: .Bottom,            multiplier: 1.0, constant: 0.0)
         let trailingConstraint =    NSLayoutConstraint(item: self.view,             attribute: .Trailing,   relatedBy: .Equal, toItem: rightController.view, attribute: .Trailing,          multiplier: 1.0, constant: 0.0)
-        let widthConstraint =       NSLayoutConstraint(item: rightController.view,  attribute: .Width,      relatedBy: .Equal, toItem: nil,                  attribute: .NotAnAttribute,    multiplier: 1.0, constant: rightController.preferredContentSize.width)
+        let widthConstraint =       NSLayoutConstraint(item: rightController.view,  attribute: .Width,      relatedBy: .Equal, toItem: nil,                  attribute: .NotAnAttribute,    multiplier: 1.0, constant: width)
         
         self.rightPanelConstraints = [trailingConstraint, topConstraint, bottomConstraint, widthConstraint]
         self.rightPanelTrailingConstraint = trailingConstraint
