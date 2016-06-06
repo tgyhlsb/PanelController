@@ -20,6 +20,16 @@ it, simply add the following line to your Podfile:
 pod "PanelController"
 ```
 
+## Update
+
+```
+pod spec lint PanelController.podspec
+```
+
+```
+pod trunk push PanelController.podspec
+```
+
 ## Author
 
 Tanguy Helesbeux, pods@helesbeux.com
