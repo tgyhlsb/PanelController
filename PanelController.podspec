@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PanelController"
-  s.version          = "1.0.11"
+  s.version          = "1.0.12"
   s.summary          = "Controller component to add panels on both side of the screen."
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'PanelController/Classes/**/*'
   s.resource_bundles = {
-    'PanelController' => ['PanelController/Assets/*.png']
+#   'PanelController' => ['PanelController/Assets/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
