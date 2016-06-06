@@ -313,12 +313,14 @@ public class PanelController: UIViewController {
         let finalDuration = duration ?? self.layoutAnimationsDuration
         self.updateViewConstraints()
         guard animated else {
+            self.view.setNeedsLayout()
             self.view.layoutIfNeeded()
             completion?()
             return
         }
         
         UIView.animateWithDuration(finalDuration, animations: { () -> Void in
+            self.view.setNeedsLayout()
             self.view.layoutIfNeeded()
             }, completion: { finished in
                 if finished { completion?() }
