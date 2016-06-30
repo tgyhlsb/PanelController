@@ -21,7 +21,7 @@ public class PanelController: UIViewController {
     
     // MARK: - INITIALIZERS -
     
-    public init(centerController: UIViewController, leftController: UIViewController? = nil, rightController: UIViewController? = nil) {
+    public init(centerController: UIViewController?, leftController: UIViewController? = nil, rightController: UIViewController? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.setCenterPanelWithController(centerController)
         self.setLeftPanelWithController(leftController)

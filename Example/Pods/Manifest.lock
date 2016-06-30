@@ -1,21 +1,10 @@
 PODS:
-  - FBSnapshotTestCase (2.1.0):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.0)
-  - FBSnapshotTestCase/Core (2.1.0)
-  - FBSnapshotTestCase/SwiftSupport (2.1.0):
-    - FBSnapshotTestCase/Core
   - Nimble (3.2.0)
-  - Nimble-Snapshots (4.0.1):
-    - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
-  - PanelController (1.0.6)
+  - PanelController (1.0.12)
   - Quick (0.9.2)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
   - Nimble (~> 3.0)
-  - Nimble-Snapshots
   - PanelController (from `../`)
   - Quick (~> 0.8)
 
@@ -24,10 +13,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 366ecd378511d7716c79991cd8067d1eed23578d
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
-  Nimble-Snapshots: 2d15a585b816f7d14947ed6e172218f9d0980ea8
-  PanelController: 5e25763a554fcb2f1844fd618ab69594204001fb
+  PanelController: 5b0ee796110964473a63db1a68c1b742f6ceba6c
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 0f8ca320e499e0f8ad1213bf926954ae3f13b612
+
+COCOAPODS: 1.0.1
