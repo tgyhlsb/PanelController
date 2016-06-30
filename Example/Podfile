@@ -9,6 +9,4 @@ target 'PanelController_Tests' do
 
   pod 'Quick', '~> 0.8'
   pod 'Nimble', '~> 3.0'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
 end
