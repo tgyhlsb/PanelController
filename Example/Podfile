@@ -1,10 +1,10 @@
 use_frameworks!
 
-target 'PanelController_Example', :exclusive => true do
+target 'PanelController_Example' do
   pod 'PanelController', :path => '../'
 end
 
-target 'PanelController_Tests', :exclusive => true do
+target 'PanelController_Tests' do
   pod 'PanelController', :path => '../'
 
   pod 'Quick', '~> 0.8'
