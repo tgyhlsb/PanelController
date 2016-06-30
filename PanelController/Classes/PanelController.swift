@@ -192,7 +192,9 @@ public class PanelController: UIViewController {
     // MARK: Panel setters
     
     private func _setCenterPanelWithController(controller: UIViewController?) {
-        guard let centerController = controller else { return self.removeController(self.centerController) }
+        guard let centerController = controller else {
+            return self.removeController(self.centerController)
+        }
         guard !centerController.isEqual(self.centerController) else { return }
         
         self.removeController(self.centerController)
