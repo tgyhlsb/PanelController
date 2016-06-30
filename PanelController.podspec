@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PanelController"
-  s.version          = "1.0.12"
+  s.version          = "1.1.0"
   s.summary          = "Controller component to add panels on both side of the screen."
 
 # This description is used to generate tags and improve search results.
