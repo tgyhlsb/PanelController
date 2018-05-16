@@ -10,11 +10,11 @@ import UIKit
 
 public protocol PanelControllerDelegate {
     
-    func panelController(panelController: PanelController, willChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState)
-    func panelController(panelController: PanelController, didChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState)
+    func panelController(_ panelController: PanelController, willChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState)
+    func panelController(_ panelController: PanelController, didChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState)
     
-    func panelController(panelController: PanelController, willChangeSizeOfPanel side: PanelController.PanelSide)
-    func panelController(panelController: PanelController, didChangeSizeOfPanel side: PanelController.PanelSide)
+    func panelController(_ panelController: PanelController, willChangeSizeOfPanel side: PanelController.PanelSide)
+    func panelController(_ panelController: PanelController, didChangeSizeOfPanel side: PanelController.PanelSide)
 }
 
 public class PanelController: UIViewController {
@@ -23,9 +23,9 @@ public class PanelController: UIViewController {
     
     public init(centerController: UIViewController?, leftController: UIViewController? = nil, rightController: UIViewController? = nil) {
         super.init(nibName: nil, bundle: nil)
-        self.setCenterPanelWithController(centerController)
-        self.setLeftPanelWithController(leftController)
-        self.setRightPanelWithController(rightController)
+		self.setCenterPanel(with: centerController)
+		self.setLeftPanel(with: leftController)
+		self.setRightPanel(with: rightController)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -35,18 +35,18 @@ public class PanelController: UIViewController {
     // MARK: - PUBLIC -
     
     public enum PanelStyle: Int {
-        case Above
-        case SideBySide
+        case above
+        case sideBySide
     }
     
     public enum PanelState: Int {
-        case Opened
-        case Closed
+        case opened
+        case closed
     }
     
     public enum PanelSide: Int {
-        case Left
-        case Right
+        case left
+        case right
     }
     
     // MARK: Properties
@@ -55,15 +55,15 @@ public class PanelController: UIViewController {
     public private(set) var leftController: UIViewController?
     public private(set) var rightController: UIViewController?
     
-    public private(set) var leftPanelState: PanelState = .Closed
-    public private(set) var rightPanelState: PanelState = .Closed
+    public private(set) var leftPanelState: PanelState = .closed
+    public private(set) var rightPanelState: PanelState = .closed
     
-    public var leftPanelStyle: PanelStyle = .Above     { didSet { self.updateLayout(animated: false) } }
-    public var rightPanelStyle: PanelStyle = .Above    { didSet { self.updateLayout(animated: false) } }
+    public var leftPanelStyle: PanelStyle = .above     { didSet { self.updateLayout(animated: false) } }
+    public var rightPanelStyle: PanelStyle = .above    { didSet { self.updateLayout(animated: false) } }
     
     public var delegate: PanelControllerDelegate?
     
-    public var layoutAnimationsDuration: NSTimeInterval = 0.5
+    public var layoutAnimationsDuration: TimeInterval = 0.5
     
     // MARK: API
     
@@ -81,19 +81,19 @@ public class PanelController: UIViewController {
     public func setPanel(side: PanelSide, _ state: PanelState, animated: Bool = false) {
         self.delegate?.panelController(self, willChangePanel: side, toState: state)
         switch side {
-        case .Left:
+        case .left:
             self.leftPanelState  = state
-            self.leftController?.beginAppearanceTransition(state == .Opened, animated: animated)
-        case .Right:
+            self.leftController?.beginAppearanceTransition(state == .opened, animated: animated)
+        case .right:
             self.rightPanelState = state
-            self.rightController?.beginAppearanceTransition(state == .Opened, animated: animated)
+            self.rightController?.beginAppearanceTransition(state == .opened, animated: animated)
         }
         
-        self.updateLayout(animated: animated) { finished in
+        self.updateLayout(animated: animated) {
             self.delegate?.panelController(self, didChangePanel: side, toState: state)
             switch side {
-            case .Left: self.leftController?.endAppearanceTransition()
-            case .Right: self.rightController?.endAppearanceTransition()
+            case .left: self.leftController?.endAppearanceTransition()
+            case .right: self.rightController?.endAppearanceTransition()
             }
         }
         
@@ -114,20 +114,20 @@ public class PanelController: UIViewController {
         for side in sides {
             self.delegate?.panelController(self, willChangePanel: side, toState: state)
             switch side {
-            case .Left:
+            case .left:
                 self.leftPanelState  = state
-                self.leftController?.beginAppearanceTransition(state == .Opened, animated: animated)
-            case .Right:
+                self.leftController?.beginAppearanceTransition(state == .opened, animated: animated)
+            case .right:
                 self.rightPanelState = state
-                self.rightController?.beginAppearanceTransition(state == .Opened, animated: animated)
+                self.rightController?.beginAppearanceTransition(state == .opened, animated: animated)
             }
         }
-        self.updateLayout(animated: animated) { finished in
+        self.updateLayout(animated: animated) {
             for side in sides {
                 self.delegate?.panelController(self, didChangePanel: side, toState: state)
                 switch side {
-                case .Left: self.leftController?.endAppearanceTransition()
-                case .Right: self.rightController?.endAppearanceTransition()
+                case .left: self.leftController?.endAppearanceTransition()
+                case .right: self.rightController?.endAppearanceTransition()
                 }
             }
         }
@@ -147,30 +147,30 @@ public class PanelController: UIViewController {
         for change in changes {
             self.delegate?.panelController(self, willChangePanel: change.side, toState: change.state)
             switch change.side {
-            case .Left:
+            case .left:
                 self.leftPanelState  = change.state
-                self.leftController?.beginAppearanceTransition(change.state == .Opened, animated: animated)
-            case .Right:
+                self.leftController?.beginAppearanceTransition(change.state == .opened, animated: animated)
+            case .right:
                 self.rightPanelState = change.state
-                self.rightController?.beginAppearanceTransition(change.state == .Opened, animated: animated)
+                self.rightController?.beginAppearanceTransition(change.state == .opened, animated: animated)
             }
         }
-        self.updateLayout(animated: animated) { finished in
-            for change in changes {
-                self.delegate?.panelController(self, didChangePanel: change.side, toState: change.state)
-                switch change.side {
-                case .Left: self.leftController?.endAppearanceTransition()
-                case .Right: self.rightController?.endAppearanceTransition()
-                }
-            }
-        }
+		self.updateLayout(animated: animated) {
+			for change in changes {
+				self.delegate?.panelController(self, didChangePanel: change.side, toState: change.state)
+				switch change.side {
+				case .left: self.leftController?.endAppearanceTransition()
+				case .right: self.rightController?.endAppearanceTransition()
+				}
+			}
+		}
     }
     
     // Mark: Panel Setters
     
-    public func setCenterPanelWithController(controller: UIViewController?)   { self._setCenterPanelWithController(controller) }
-    public func setLeftPanelWithController(controller: UIViewController?)     { self._setLeftPanelWithController(controller)   }
-    public func setRightPanelWithController(controller: UIViewController?)    { self._setRightPanelWithController(controller)  }
+	public func setCenterPanel(with controller: UIViewController?)   { self._setCenterPanel(with: controller) }
+	public func setLeftPanel(with controller: UIViewController?)     { self._setLeftPanel(with: controller)   }
+	public func setRightPanel(with controller: UIViewController?)    { self._setRightPanel(with: controller)  }
     
     // MARK: - PRIVATE -
     
@@ -191,20 +191,20 @@ public class PanelController: UIViewController {
     
     // MARK: Panel setters
     
-    private func _setCenterPanelWithController(controller: UIViewController?) {
-        guard let centerController = controller else { return self.removeController(self.centerController) }
+    private func _setCenterPanel(with controller: UIViewController?) {
+		guard let centerController = controller else { return self.remove(controller: self.centerController) }
         guard !centerController.isEqual(self.centerController) else { return }
         
-        self.removeController(self.centerController)
+		self.remove(controller: self.centerController)
         self.addChildViewController(centerController)
-        centerController.willMoveToParentViewController(self)
+        centerController.willMove(toParentViewController: self)
         centerController.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.insertSubview(centerController.view, atIndex: 0)
+		self.view.insertSubview(centerController.view, at: 0)
         
-        let topConstraint =         NSLayoutConstraint(item: self.view, attribute: .Top,         relatedBy: .Equal, toItem: centerController.view, attribute: .Top,         multiplier: 1.0, constant: 0.0)
-        let bottomConstraint =      NSLayoutConstraint(item: self.view, attribute: .Bottom,      relatedBy: .Equal, toItem: centerController.view, attribute: .Bottom,      multiplier: 1.0, constant: 0.0)
-        let leadingConstraint =     NSLayoutConstraint(item: self.view, attribute: .Leading,     relatedBy: .Equal, toItem: centerController.view, attribute: .Leading,     multiplier: 1.0, constant: 0.0)
-        let trailingConstraint =    NSLayoutConstraint(item: self.view, attribute: .Trailing,    relatedBy: .Equal, toItem: centerController.view, attribute: .Trailing,    multiplier: 1.0, constant: 0.0)
+        let topConstraint =         NSLayoutConstraint(item: self.view, attribute: .top,         relatedBy: .equal, toItem: centerController.view, attribute: .top,         multiplier: 1.0, constant: 0.0)
+        let bottomConstraint =      NSLayoutConstraint(item: self.view, attribute: .bottom,      relatedBy: .equal, toItem: centerController.view, attribute: .bottom,      multiplier: 1.0, constant: 0.0)
+        let leadingConstraint =     NSLayoutConstraint(item: self.view, attribute: .leading,     relatedBy: .equal, toItem: centerController.view, attribute: .leading,     multiplier: 1.0, constant: 0.0)
+        let trailingConstraint =    NSLayoutConstraint(item: self.view, attribute: .trailing,    relatedBy: .equal, toItem: centerController.view, attribute: .trailing,    multiplier: 1.0, constant: 0.0)
         
         self.centerPanelConstraints = [leadingConstraint, trailingConstraint, topConstraint, bottomConstraint]
         self.centerPanelLeadingConstraint = leadingConstraint
@@ -212,28 +212,28 @@ public class PanelController: UIViewController {
         
         self.view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
         
-        centerController.didMoveToParentViewController(self)
+        centerController.didMove(toParentViewController: self)
         self.updateViewConstraints()
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         self.centerController = centerController
     }
     
-    private func _setLeftPanelWithController(controller: UIViewController?) {
-        guard let leftController = controller else { return self.removeController(self.leftController) }
+    private func _setLeftPanel(with controller: UIViewController?) {
+		guard let leftController = controller else { return self.remove(controller: self.leftController) }
         guard !leftController.isEqual(self.leftController) else { return }
         
-        self.removeController(self.leftController)
+		self.remove(controller: self.leftController)
         self.addChildViewController(leftController)
-        leftController.willMoveToParentViewController(self)
+        leftController.willMove(toParentViewController: self)
         leftController.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(leftController.view)
         
-        let width = self.widthForController(leftController)
-        let topConstraint =         NSLayoutConstraint(item: self.view,             attribute: .Top,         relatedBy: .Equal, toItem: leftController.view, attribute: .Top,            multiplier: 1.0, constant: 0.0)
-        let bottomConstraint =      NSLayoutConstraint(item: self.view,             attribute: .Bottom,      relatedBy: .Equal, toItem: leftController.view, attribute: .Bottom,         multiplier: 1.0, constant: 0.0)
-        let leadingConstraint =     NSLayoutConstraint(item: self.view,             attribute: .Leading,     relatedBy: .Equal, toItem: leftController.view, attribute: .Leading,        multiplier: 1.0, constant: 0.0)
-        let widthConstraint =       NSLayoutConstraint(item: leftController.view,   attribute: .Width,       relatedBy: .Equal, toItem: nil,                 attribute: .NotAnAttribute, multiplier: 1.0, constant: width)
+		let width = self.width(for: leftController)
+        let topConstraint =         NSLayoutConstraint(item: self.view,             attribute: .top,         relatedBy: .equal, toItem: leftController.view, attribute: .top,            multiplier: 1.0, constant: 0.0)
+        let bottomConstraint =      NSLayoutConstraint(item: self.view,             attribute: .bottom,      relatedBy: .equal, toItem: leftController.view, attribute: .bottom,         multiplier: 1.0, constant: 0.0)
+        let leadingConstraint =     NSLayoutConstraint(item: self.view,             attribute: .leading,     relatedBy: .equal, toItem: leftController.view, attribute: .leading,        multiplier: 1.0, constant: 0.0)
+        let widthConstraint =       NSLayoutConstraint(item: leftController.view,   attribute: .width,       relatedBy: .equal, toItem: nil,                 attribute: .notAnAttribute, multiplier: 1.0, constant: width)
         
         self.leftPanelConstraints = [leadingConstraint, topConstraint, bottomConstraint, widthConstraint]
         self.leftPanelLeadingConstraint = leadingConstraint
@@ -242,28 +242,28 @@ public class PanelController: UIViewController {
         self.view.addConstraints([topConstraint, bottomConstraint, leadingConstraint])
         leftController.view.addConstraint(widthConstraint)
         
-        leftController.didMoveToParentViewController(self)
+        leftController.didMove(toParentViewController: self)
         self.updateViewConstraints()
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
         self.leftController = leftController
     }
     
-    private func _setRightPanelWithController(controller: UIViewController?) {
-        guard let rightController = controller else { return self.removeController(self.rightController) }
+    private func _setRightPanel(with controller: UIViewController?) {
+		guard let rightController = controller else { return self.remove(controller: self.rightController) }
         guard !rightController.isEqual(self.rightController) else { return }
         
-        self.removeController(self.rightController)
+		self.remove(controller: self.rightController)
         self.addChildViewController(rightController)
-        rightController.willMoveToParentViewController(self)
+        rightController.willMove(toParentViewController: self)
         rightController.view.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(rightController.view)
         
-        let width = self.widthForController(rightController)
-        let topConstraint =         NSLayoutConstraint(item: self.view,             attribute: .Top,        relatedBy: .Equal, toItem: rightController.view, attribute: .Top,               multiplier: 1.0, constant: 0.0)
-        let bottomConstraint =      NSLayoutConstraint(item: self.view,             attribute: .Bottom,     relatedBy: .Equal, toItem: rightController.view, attribute: .Bottom,            multiplier: 1.0, constant: 0.0)
-        let trailingConstraint =    NSLayoutConstraint(item: self.view,             attribute: .Trailing,   relatedBy: .Equal, toItem: rightController.view, attribute: .Trailing,          multiplier: 1.0, constant: 0.0)
-        let widthConstraint =       NSLayoutConstraint(item: rightController.view,  attribute: .Width,      relatedBy: .Equal, toItem: nil,                  attribute: .NotAnAttribute,    multiplier: 1.0, constant: width)
+		let width = self.width(for: rightController)
+        let topConstraint =         NSLayoutConstraint(item: self.view,             attribute: .top,        relatedBy: .equal, toItem: rightController.view, attribute: .top,               multiplier: 1.0, constant: 0.0)
+        let bottomConstraint =      NSLayoutConstraint(item: self.view,             attribute: .bottom,     relatedBy: .equal, toItem: rightController.view, attribute: .bottom,            multiplier: 1.0, constant: 0.0)
+        let trailingConstraint =    NSLayoutConstraint(item: self.view,             attribute: .trailing,   relatedBy: .equal, toItem: rightController.view, attribute: .trailing,          multiplier: 1.0, constant: 0.0)
+        let widthConstraint =       NSLayoutConstraint(item: rightController.view,  attribute: .width,      relatedBy: .equal, toItem: nil,                  attribute: .notAnAttribute,    multiplier: 1.0, constant: width)
         
         self.rightPanelConstraints = [trailingConstraint, topConstraint, bottomConstraint, widthConstraint]
         self.rightPanelTrailingConstraint = trailingConstraint
@@ -272,7 +272,7 @@ public class PanelController: UIViewController {
         self.view.addConstraints([topConstraint, bottomConstraint, trailingConstraint])
         rightController.view.addConstraint(widthConstraint)
         
-        rightController.didMoveToParentViewController(self)
+        rightController.didMove(toParentViewController: self)
         self.updateViewConstraints()
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
@@ -281,27 +281,27 @@ public class PanelController: UIViewController {
     
     // MARK: Child controllers
     
-    private func removeController(controller: UIViewController!) {
+    private func remove(controller: UIViewController!) {
         guard controller != nil else { return }
-        controller.willMoveToParentViewController(nil)
+		controller.willMove(toParentViewController: nil)
         controller.view.removeFromSuperview()
-        controller.didMoveToParentViewController(nil)
+		controller.didMove(toParentViewController: nil)
     }
-    
-    override public func preferredContentSizeDidChangeForChildContentContainer(container: UIContentContainer) {
+	
+	override public func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         guard let controller = container as? UIViewController else { return }
-        guard let side = self.sideForController(controller) else { return }
+		guard let side = self.side(for: controller) else { return }
         
         self.delegate?.panelController(self, willChangeSizeOfPanel: side)
-        self.updateLayout(animated: true) { finished in
+		self.updateLayout(animated: true) {
             self.delegate?.panelController(self, didChangeSizeOfPanel: side)
         }
     }
-    private func sideForController(controller: UIViewController) -> PanelSide? {
+    private func side(for controller: UIViewController) -> PanelSide? {
         if controller.isEqual(self.leftController) {
-            return .Left
+            return .left
         } else if controller.isEqual(self.rightController) {
-            return .Right
+            return .right
         } else {
             return nil
         }
@@ -309,7 +309,7 @@ public class PanelController: UIViewController {
     
     // MARK: Layout
     
-    private func updateLayout(animated animated: Bool, duration: NSTimeInterval? = nil, completion: completionBlock? = nil) {
+    private func updateLayout(animated: Bool, duration: TimeInterval? = nil, completion: completionBlock? = nil) {
         let finalDuration = duration ?? self.layoutAnimationsDuration
         self.updateViewConstraints()
         guard animated else {
@@ -318,8 +318,8 @@ public class PanelController: UIViewController {
             completion?()
             return
         }
-        
-        UIView.animateWithDuration(finalDuration, animations: { () -> Void in
+		
+		UIView.animate(withDuration: finalDuration, animations: { () -> Void in
             self.view.setNeedsLayout()
             self.view.layoutIfNeeded()
             }, completion: { finished in
@@ -330,16 +330,16 @@ public class PanelController: UIViewController {
     override public func updateViewConstraints() {
         
         // Panel left
-        let leftWidth = self.widthForController(self.leftController)
-        let leftOffset = self.leftPanelState == .Opened ? 0.0 : leftWidth
+		let leftWidth = self.width(for: self.leftController)
+        let leftOffset = self.leftPanelState == .opened ? 0.0 : leftWidth
         if self.leftPanelLeadingConstraint != nil {
             self.leftPanelLeadingConstraint.constant = leftOffset
             self.leftPanelWidthConstraint.constant = leftWidth
         }
         
         // Panel right
-        let rightWidth = self.widthForController(self.rightController)
-        let rightOffset = self.rightPanelState == .Opened ? 0.0 : -rightWidth
+		let rightWidth = self.width(for: self.rightController)
+        let rightOffset = self.rightPanelState == .opened ? 0.0 : -rightWidth
         if self.rightPanelTrailingConstraint != nil {
             self.rightPanelTrailingConstraint.constant = rightOffset
             self.rightPanelWidthConstraint.constant = rightWidth
@@ -347,8 +347,8 @@ public class PanelController: UIViewController {
         
         // Center
         if self.centerPanelLeadingConstraint != nil {
-            self.centerPanelLeadingConstraint.constant = self.leftPanelStyle == .SideBySide && self.leftPanelState == .Opened ? -leftWidth : 0.0
-            self.centerPanelTrailingConstraint.constant = self.rightPanelStyle == .SideBySide && self.rightPanelState == .Opened  ? rightWidth : 0.0
+            self.centerPanelLeadingConstraint.constant = self.leftPanelStyle == .sideBySide && self.leftPanelState == .opened ? -leftWidth : 0.0
+            self.centerPanelTrailingConstraint.constant = self.rightPanelStyle == .sideBySide && self.rightPanelState == .opened  ? rightWidth : 0.0
         }
         
         super.updateViewConstraints()
@@ -356,10 +356,10 @@ public class PanelController: UIViewController {
     
     // MARK: Content sizes
     
-    static let defaultPanelWidth = CGFloat(300)
+	static let defaultPanelWidth: CGFloat = 300.0
     
-    private func widthForController(controller: UIViewController?) -> CGFloat {
-        if let width = controller?.preferredContentSize.width where width > 0 {
+    private func width(for controller: UIViewController?) -> CGFloat {
+        if let width = controller?.preferredContentSize.width, width > 0.0 {
             return width
         }
         return PanelController.defaultPanelWidth

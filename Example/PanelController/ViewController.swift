@@ -12,42 +12,42 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(#function) in \(self.dynamicType)")
+		print("\(#function) in \(type(of: self))")
     }
-    
-    override func viewWillAppear(animated: Bool) {
+	
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("\(#function) in \(self.dynamicType)")
+		print("\(#function) in \(type(of: self))")
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("\(#function) in \(self.dynamicType)")
+        print("\(#function) in \(type(of: self))")
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("\(#function) in \(self.dynamicType)")
+        print("\(#function) in \(type(of: self))")
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("\(#function) in \(self.dynamicType)")
+        print("\(#function) in \(type(of: self))")
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print("\(#function) in \(self.dynamicType)")
+        print("\(#function) in \(type(of: self))")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print("\(#function) in \(self.dynamicType)")
+        print("\(#function) in \(type(of: self))")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("\(#function) in \(self.dynamicType)")
+        print("\(#function) in \(type(of: self))")
     }
     
 }

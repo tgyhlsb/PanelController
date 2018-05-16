@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad10_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstViewController" customModule="PanelController_Example" customModuleProvider="target">
@@ -15,47 +18,47 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPJ-XH-aSD">
-                    <rect key="frame" x="8" y="8" width="584" height="584"/>
+                    <rect key="frame" x="8" y="8" width="1096" height="818"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZl-St-r81">
-                            <rect key="frame" x="8" y="277" width="30" height="30"/>
+                            <rect key="frame" x="8" y="394" width="30" height="30"/>
                             <state key="normal" title="Left"/>
                             <connections>
-                                <action selector="leftButtonHandler:" destination="-1" eventType="touchUpInside" id="YRC-c5-NB7"/>
+                                <action selector="leftButtonHandlerWithSender:" destination="-1" eventType="touchUpInside" id="3HS-9a-veN"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCG-Dk-rWn">
-                            <rect key="frame" x="540" y="277" width="36" height="30"/>
+                            <rect key="frame" x="1052" y="394" width="36" height="30"/>
                             <state key="normal" title="Right"/>
                             <connections>
-                                <action selector="rightButtonHandler:" destination="-1" eventType="touchUpInside" id="W31-fR-4cm"/>
+                                <action selector="rightButtonHandlerWithSender:" destination="-1" eventType="touchUpInside" id="aMo-5j-0zg"/>
                             </connections>
                         </button>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LQe-I7-Hr5">
-                            <rect key="frame" x="202" y="278" width="181" height="29"/>
+                            <rect key="frame" x="458" y="395" width="181" height="29"/>
                             <segments>
                                 <segment title="Above"/>
                                 <segment title="Side by Side"/>
                             </segments>
                             <connections>
-                                <action selector="segmentedControllerValueDidChange:" destination="-1" eventType="valueChanged" id="sX7-ZC-Zr8"/>
+                                <action selector="segmentedControllerValueDidChangeWithSender:" destination="-1" eventType="valueChanged" id="KGZ-QB-PjX"/>
                             </connections>
                         </segmentedControl>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mit-AR-bdB">
-                            <rect key="frame" x="268" y="545" width="51" height="31"/>
+                            <rect key="frame" x="524" y="779" width="51" height="31"/>
                         </switch>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-FO-qNV">
-                            <rect key="frame" x="250" y="516" width="86" height="21"/>
+                            <rect key="frame" x="506" y="750" width="86" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="mit-AR-bdB" firstAttribute="centerX" secondItem="aYV-FO-qNV" secondAttribute="centerX" id="5HC-4n-aXr"/>
                         <constraint firstItem="mit-AR-bdB" firstAttribute="top" secondItem="aYV-FO-qNV" secondAttribute="bottom" constant="8" id="LsA-om-o7B"/>
@@ -70,7 +73,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="YPJ-XH-aSD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2DB-uJ-WlD"/>
                 <constraint firstAttribute="bottom" secondItem="YPJ-XH-aSD" secondAttribute="bottom" constant="8" id="YdJ-vj-r1J"/>

@@ -1,5 +1,10 @@
 #import <XCTest/XCTest.h>
+
+#if __has_include("Nimble-Swift.h")
+#import "Nimble-Swift.h"
+#else
 #import <Nimble/Nimble-Swift.h>
+#endif
 
 SWIFT_CLASS("_TtC6Nimble22CurrentTestCaseTracker")
 @interface CurrentTestCaseTracker : NSObject <XCTestObservation>
@@ -7,12 +12,3 @@ SWIFT_CLASS("_TtC6Nimble22CurrentTestCaseTracker")
 @end
 
 @interface CurrentTestCaseTracker (Register) @end
-
-@implementation CurrentTestCaseTracker (Register)
-
-+ (void)load {
-    CurrentTestCaseTracker *tracker = [CurrentTestCaseTracker sharedInstance];
-    [[XCTestObservationCenter sharedTestObservationCenter] addTestObserver:tracker];
-}
-
-@end

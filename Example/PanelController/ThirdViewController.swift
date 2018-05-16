@@ -11,7 +11,7 @@ import UIKit
 class ThirdViewController: ViewController {
     
     @IBAction func closeButtonHandler(sender: UIButton) {
-        self.panelController?.setPanel(.Right, .Closed, animated: true)
+		self.panelController?.setPanel(side: .right, .closed, animated: true)
     }
     
     @IBAction func segmentedControllerValueDidChange(sender: UISegmentedControl) {
