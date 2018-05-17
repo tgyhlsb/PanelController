@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PanelController"
-  s.version          = "1.1.0"
+  s.version          = "1.2.1"
   s.summary          = "Controller component to add panels on both side of the screen."
 
 # This description is used to generate tags and improve search results.
@@ -23,10 +23,10 @@ Pod::Spec.new do |s|
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Tanguy Helesbeux" => "pods@helesbeux.com" }
-  s.source           = { :git => "https://github.com/tgyhlsb/PanelController.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/jbejean/PanelController.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/tgyhlsb'
-
-  s.ios.deployment_target = '8.0'
+  s.swift_version = '4.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'PanelController/Classes/**/*'
   s.resource_bundles = {

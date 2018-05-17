@@ -15,7 +15,7 @@ class SecondViewController: ViewController {
     }
 
     @IBAction func closeButtonHandler(sender: UIButton) {
-        self.panelController?.setPanel(.Left, .Closed, animated: true)
+		self.panelController?.setPanel(side: .left, .closed, animated: true)
     }
     
     @IBAction func segmentedControllerValueDidChange(sender: UISegmentedControl) {
