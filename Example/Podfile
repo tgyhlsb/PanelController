@@ -7,6 +7,6 @@ end
 target 'PanelController_Tests' do
   pod 'PanelController', :path => '../'
 
-  pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
+  pod 'Quick'
+  pod 'Nimble'
 end

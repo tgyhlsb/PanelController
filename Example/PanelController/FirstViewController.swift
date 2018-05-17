@@ -30,39 +30,39 @@ class FirstViewController: ViewController, PanelControllerDelegate {
     }
     
     @IBAction func leftButtonHandler(sender: UIButton) {
-        self.panelController?.setPanel(.Left, !sender.selected ? .Opened : .Closed, animated: self.animationsSwitch.on)
+		self.panelController?.setPanel(side: .left, !sender.isSelected ? .opened : .closed, animated: self.animationsSwitch.isOn)
     }
     
     @IBAction func rightButtonHandler(sender: UIButton) {
-        self.panelController?.setPanel(.Right, !sender.selected ? .Opened : .Closed, animated: self.animationsSwitch.on)
+        self.panelController?.setPanel(side: .right, !sender.isSelected ? .opened : .closed, animated: self.animationsSwitch.isOn)
     }
 
     @IBAction func segmentedControllerValueDidChange(sender: UISegmentedControl) {
-        self.panelController?.leftPanelStyle = sender.selectedSegmentIndex == 0 ? .Above : .SideBySide
-        self.panelController?.rightPanelStyle = sender.selectedSegmentIndex == 0 ? .Above : .SideBySide
+        self.panelController?.leftPanelStyle = sender.selectedSegmentIndex == 0 ? .above : .sideBySide
+        self.panelController?.rightPanelStyle = sender.selectedSegmentIndex == 0 ? .above : .sideBySide
+    }
+	
+    internal func panelController(_ panelController: PanelController, willChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState) {
+		print("\(#function) in \(type(of: self))")
     }
     
-    internal func panelController(panelController: PanelController, willChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState) {
-        print("\(#function) in \(self.dynamicType)")
-    }
-    
-    internal func panelController(panelController: PanelController, didChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState) {
-        print("\(#function) in \(self.dynamicType)")
+    internal func panelController(_ panelController: PanelController, didChangePanel side: PanelController.PanelSide, toState state: PanelController.PanelState) {
+		print("\(#function) in \(type(of: self))")
         
         switch side {
-        case .Left:
-            self.leftButton.selected = (state == .Opened)
-        case .Right:
-            self.rightButton.selected = (state == .Opened)
+        case .left:
+            self.leftButton.isSelected = (state == .opened)
+        case .right:
+            self.rightButton.isSelected = (state == .opened)
         }
     }
     
-    internal func panelController(panelController: PanelController, willChangeSizeOfPanel side: PanelController.PanelSide) {
-        print("\(#function) in \(self.dynamicType)")
+    internal func panelController(_ panelController: PanelController, willChangeSizeOfPanel side: PanelController.PanelSide) {
+		print("\(#function) in \(type(of: self))")
     }
     
-    internal func panelController(panelController: PanelController, didChangeSizeOfPanel side: PanelController.PanelSide) {
-        print("\(#function) in \(self.dynamicType)")
+    internal func panelController(_ panelController: PanelController, didChangeSizeOfPanel side: PanelController.PanelSide) {
+		print("\(#function) in \(type(of: self))")
     }
 
 }
