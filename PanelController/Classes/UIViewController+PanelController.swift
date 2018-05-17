@@ -10,6 +10,6 @@ import UIKit
 
 public extension UIViewController {
     
-    public var panelController: PanelController? { return self.parentViewController as? PanelController }
+	public var panelController: PanelController? { return self.parent as? PanelController }
     
 }

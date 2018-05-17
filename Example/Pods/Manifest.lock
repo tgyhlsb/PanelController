@@ -1,22 +1,27 @@
 PODS:
-  - Nimble (3.2.0)
-  - PanelController (1.0.12)
-  - Quick (0.9.2)
+  - Nimble (7.1.1)
+  - PanelController (1.1.0)
+  - Quick (1.3.0)
 
 DEPENDENCIES:
-  - Nimble (~> 3.0)
+  - Nimble
   - PanelController (from `../`)
-  - Quick (~> 0.8)
+  - Quick
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Nimble
+    - Quick
 
 EXTERNAL SOURCES:
   PanelController:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
-  PanelController: 5b0ee796110964473a63db1a68c1b742f6ceba6c
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
+  Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
+  PanelController: 3c679c25fee361d7d946d9b4229911563490531e
+  Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
 
-PODFILE CHECKSUM: 0f8ca320e499e0f8ad1213bf926954ae3f13b612
+PODFILE CHECKSUM: ed609cd799519c246c08319f1c1e96563dad4161
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.5.0
